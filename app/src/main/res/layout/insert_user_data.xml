@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertUserDataActivity">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/ingrese_sus_datos"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+             />
+
+        <!-- Selector de edad -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edad:"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp" />
+
+        <NumberPicker
+            android:id="@+id/numberPickerEdad"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Selector de género -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Género"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerGenero"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Selector de peso -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peso (kg)"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp" />
+
+        <NumberPicker
+            android:id="@+id/numberPickerPeso"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Selector de tipo de actividad física -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Tipo de actividad física"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerActividad"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón para guardar -->
+        <Button
+            android:id="@+id/btnGuardarDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/guardar"
+            android:onClick="GuardarDatos"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>

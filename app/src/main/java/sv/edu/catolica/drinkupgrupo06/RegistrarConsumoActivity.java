@@ -146,6 +146,7 @@ public class RegistrarConsumoActivity extends AppCompatActivity {
         long result = db.insert("consumo", null, values);
         if (result != -1) {
             Toast.makeText(this, "Consumo registrado", Toast.LENGTH_SHORT).show();
+            setResult(RESULT_OK);
             finish();
         } else {
             Toast.makeText(this, "Error al registrar consumo", Toast.LENGTH_SHORT).show();

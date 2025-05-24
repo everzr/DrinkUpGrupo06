@@ -211,8 +211,16 @@ public class HomeActivity extends AppCompatActivity {
 
     public void RegistrarConsumo(View view) {
         Intent intent = new Intent(this, RegistrarConsumoActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
         overridePendingTransition(0, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            mostrarDatosHome(); // Recarga los datos
+        }
     }
 
     private void mostrarDatosHome() {

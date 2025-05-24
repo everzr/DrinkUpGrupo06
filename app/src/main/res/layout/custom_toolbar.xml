@@ -68,7 +68,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/perfil"
             android:padding="10dp"
-            android:src="@drawable/ic_profile" />
+            android:src="@drawable/ic_logout" />
 
     </LinearLayout>
 

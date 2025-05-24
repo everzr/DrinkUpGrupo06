@@ -1,9 +1,12 @@
 package sv.edu.catolica.drinkupgrupo06;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -75,39 +78,60 @@ public class InsertUserDataActivity extends AppCompatActivity {
     public void GuardarDatos(View view) {
         int edad = numberPickerEdad.getValue();
         int peso = numberPickerPeso.getValue();
-
-        // Obtener valores de los Spinner
         String genero = spinnerGenero.getSelectedItem().toString();
         String actividad = spinnerActividad.getSelectedItem().toString();
 
-        // Validar que los valores no estén vacíos (aunque no es necesario con NumberPicker y Spinner)
         if (genero.isEmpty() || actividad.isEmpty()) {
             Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
+        int objetivoDiario = peso * 35; // Valor sugerido
+        final int[] opciones = {objetivoDiario - 250, objetivoDiario, objetivoDiario + 250};
+        String[] opcionesStr = {opciones[0] + " ml", opciones[1] + " ml", opciones[2] + " ml"};
 
-        int usuarioId = getSharedPreferences("usuario", MODE_PRIVATE).getInt("id", -1);
-        if (usuarioId == -1) {
-            Toast.makeText(this, "Error al obtener el usuario", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        // Inflar el layout personalizado para el diálogo
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.dialog_objetivo_diario, null);
+        Spinner spinnerObjetivo = dialogView.findViewById(R.id.spinnerObjetivo);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opcionesStr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerObjetivo.setAdapter(adapter);
+        spinnerObjetivo.setSelection(1);
 
-        values.put("usuario_id", usuarioId);
-        values.put("edad", edad);
-        values.put("genero", genero);
-        values.put("peso", peso);
-        values.put("actividad_fisica", actividad);
+        new AlertDialog.Builder(this)
+                .setTitle("Objetivo diario calculado")
+                .setMessage("Tu objetivo diario recomendado es " + objetivoDiario + " ml. ¿Deseas cambiarlo?")
+                .setView(dialogView)
+                .setPositiveButton("Aceptar", (dialog, which) -> {
+                    int objetivoSeleccionado = opciones[spinnerObjetivo.getSelectedItemPosition()];
 
-        long result = db.insert("datos_usuario", null, values);
-        if (result != -1) {
-            Toast.makeText(this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, HomeActivity.class));
-            finish();
-        } else {
-            Toast.makeText(this, "Error al guardar los datos", Toast.LENGTH_SHORT).show();
-        }
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    ContentValues values = new ContentValues();
+
+                    int usuarioId = getSharedPreferences("usuario", MODE_PRIVATE).getInt("id", -1);
+                    if (usuarioId == -1) {
+                        Toast.makeText(this, "Error al obtener el usuario", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    values.put("usuario_id", usuarioId);
+                    values.put("edad", edad);
+                    values.put("genero", genero);
+                    values.put("peso", peso);
+                    values.put("actividad_fisica", actividad);
+                    values.put("objetivo_diario_ml", objetivoSeleccionado);
+
+                    long result = db.insert("datos_usuario", null, values);
+                    if (result != -1) {
+                        Toast.makeText(this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(this, HomeActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(this, "Error al guardar los datos", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
     }
 }

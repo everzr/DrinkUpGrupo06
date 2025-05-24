@@ -40,7 +40,7 @@ public class RegistrarConsumoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registrar_consumo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(systemBars.left, v.getPaddingTop(), systemBars.right, systemBars.bottom);
             return insets;
         });
 

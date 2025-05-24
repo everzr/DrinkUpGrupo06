@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aqua"
+    android:padding="24dp"
+    tools:context=".RegisterActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:padding="40dp"
+        >
+<LinearLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,44 +30,68 @@
     tools:context=".RegisterActivity">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Registrar Usuario"
-        android:layout_marginBottom="20dp"
-        >
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/azul_1"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp" />
 
-    </TextView>
 
-    <EditText
-        android:id="@+id/etNombre"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="15dp"
-        android:hint="@string/nombre" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
 
-    <EditText
-        android:id="@+id/etCorreo"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNombre"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="@string/correo"
-        android:layout_marginBottom="15dp"
-        android:inputType="textEmailAddress" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
 
-    <EditText
-        android:id="@+id/etContrasena"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCorreo"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="@string/contrase_a"
-        android:layout_marginBottom="30dp"
-        android:inputType="textPassword" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:endIconMode="password_toggle">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etContrasena"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/registrar"
+        android:text="Registrarse"
         android:onClick="RegistrarUsuario"
-        />
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/azul_1"
+        app:cornerRadius="16dp" />
+
 
 </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

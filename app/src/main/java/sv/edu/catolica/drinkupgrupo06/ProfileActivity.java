@@ -1,20 +1,32 @@
 package sv.edu.catolica.drinkupgrupo06;
-
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ProfileActivity extends HomeActivity {
+
+    private EditText editName, editEmail, editAge, editWeight;
+    private Spinner spinnerGender, spinnerActivity, spinnerObjetivo;
+    private Button btnEdit, btnSave;
+    private SharedPreferences prefs;
+    private DataBase dbHelper;
+    private int userId;
+    private String[] genderOptions, activityOptions;
+    private int objetivoAnterior = 0;
+    private int[] opcionesObjetivo;
+    private String[] opcionesObjetivoStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,63 +39,146 @@ public class ProfileActivity extends HomeActivity {
             return insets;
         });
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blue)));
+        editName = findViewById(R.id.edit_name);
+        editEmail = findViewById(R.id.edit_email);
+        editAge = findViewById(R.id.edit_age);
+        editWeight = findViewById(R.id.edit_weight);
+        spinnerGender = findViewById(R.id.spinner_gender);
+        spinnerActivity = findViewById(R.id.spinner_activity);
+        spinnerObjetivo = findViewById(R.id.spinner_objetivo);
+        btnEdit = findViewById(R.id.btn_edit);
+        btnSave = findViewById(R.id.btn_save);
 
+        genderOptions = getResources().getStringArray(R.array.genero_array);
+        activityOptions = getResources().getStringArray(R.array.actividad_array);
+
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, genderOptions);
+        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerGender.setAdapter(genderAdapter);
+
+        ArrayAdapter<String> activityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, activityOptions);
+        activityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerActivity.setAdapter(activityAdapter);
+
+        prefs = getSharedPreferences("usuario", MODE_PRIVATE);
+        dbHelper = new DataBase(this);
+
+        userId = prefs.getInt("id", -1);
+        if (userId != -1) {
+            cargarDatos(userId);
         }
+
+        editEmail.setEnabled(false);
+        editName.setEnabled(false);
+        editAge.setEnabled(false);
+        editWeight.setEnabled(false);
+        spinnerGender.setEnabled(false);
+        spinnerActivity.setEnabled(false);
+        spinnerObjetivo.setEnabled(false);
+
+        btnEdit.setOnClickListener(v -> {
+            editName.setEnabled(true);
+            editAge.setEnabled(true);
+            editWeight.setEnabled(true);
+            spinnerGender.setEnabled(true);
+            spinnerActivity.setEnabled(true);
+            spinnerObjetivo.setEnabled(true);
+            btnEdit.setVisibility(View.GONE);
+            btnSave.setVisibility(View.VISIBLE);
+        });
+
+        btnSave.setOnClickListener(v -> {
+            String nombre = editName.getText().toString().trim();
+            String edad = editAge.getText().toString().trim();
+            String peso = editWeight.getText().toString().trim();
+            String genero = spinnerGender.getSelectedItem().toString();
+            String actividad = spinnerActivity.getSelectedItem().toString();
+            int objetivoSeleccionado = opcionesObjetivo[spinnerObjetivo.getSelectedItemPosition()];
+
+            if (nombre.isEmpty() || edad.isEmpty() || peso.isEmpty()) {
+                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (userId != -1) {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.execSQL("UPDATE usuarios SET nombre=? WHERE id=?", new Object[]{nombre, userId});
+                db.execSQL("UPDATE datos_usuario SET edad=?, genero=?, peso=?, actividad_fisica=?, objetivo_diario_ml=? WHERE usuario_id=?",
+                        new Object[]{edad, genero, peso, actividad, objetivoSeleccionado, userId});
+            }
+
+            prefs.edit()
+                    .putString("nombre", nombre)
+                    .putString("edad", edad)
+                    .putString("genero", genero)
+                    .putString("peso", peso)
+                    .putString("actividad_fisica", actividad)
+                    .putInt("objetivo_diario_ml", objetivoSeleccionado)
+                    .apply();
+
+            editName.setEnabled(false);
+            editAge.setEnabled(false);
+            editWeight.setEnabled(false);
+            spinnerGender.setEnabled(false);
+            spinnerActivity.setEnabled(false);
+            spinnerObjetivo.setEnabled(false);
+            btnEdit.setVisibility(View.VISIBLE);
+            btnSave.setVisibility(View.GONE);
+
+            objetivoAnterior = objetivoSeleccionado;
+
+            Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show();
+        });
     }
 
+    private void cargarDatos(int userId) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT u.nombre, u.correo, d.edad, d.genero, d.peso, d.actividad_fisica, d.objetivo_diario_ml " +
+                        "FROM usuarios u " +
+                        "LEFT JOIN datos_usuario d ON u.id = d.usuario_id " +
+                        "WHERE u.id = ?",
+                new String[]{String.valueOf(userId)}
+        );
+        if (cursor.moveToFirst()) {
+            editName.setText(cursor.getString(0));
+            editEmail.setText(cursor.getString(1));
+            editAge.setText(cursor.getString(2));
+            editWeight.setText(cursor.getString(4));
+            String genero = cursor.getString(3);
+            String actividad = cursor.getString(5);
+            objetivoAnterior = cursor.getInt(6);
 
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.navbar, menu);
-        return super.onCreateOptionsMenu(menu);
+            if (genero != null) {
+                int genderPos = java.util.Arrays.asList(genderOptions).indexOf(genero);
+                spinnerGender.setSelection(genderPos >= 0 ? genderPos : 0);
+            }
+            if (actividad != null) {
+                int activityPos = java.util.Arrays.asList(activityOptions).indexOf(actividad);
+                spinnerActivity.setSelection(activityPos >= 0 ? activityPos : 0);
+            }
+            cargarOpcionesObjetivo();
+            spinnerObjetivo.setEnabled(false);
+            btnSave.setVisibility(View.GONE);
+            btnEdit.setVisibility(View.VISIBLE);
+        }
+        cursor.close();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.nav_home) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-
-            return true;
-        } else if (item.getItemId() == R.id.nav_reminder) {
-            Intent intent = new Intent(this, ReminderActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        } else if (item.getItemId() == R.id.nav_history) {
-            Intent intent = new Intent(this, HistoryActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        } else if (item.getItemId() == R.id.nav_info) {
-            Intent intent = new Intent(this, InfoActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        } else if (item.getItemId() == R.id.nav_profile) {
-            Intent intent = new Intent(this, ProfileActivity.class);
-            startActivity(intent);
-            finish();
-            return true;
-        } else if (item.getItemId() == R.id.nav_logout) {
-            SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.clear(); // Limpia todos los datos guardados
-            editor.apply();
-
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-            return true;
-
+    private void cargarOpcionesObjetivo() {
+        int min = 1000, max = 5000, paso = 100;
+        int total = ((max - min) / paso) + 1;
+        opcionesObjetivo = new int[total];
+        opcionesObjetivoStr = new String[total];
+        int seleccionado = 0;
+        for (int i = 0, ml = min; ml <= max; i++, ml += paso) {
+            opcionesObjetivo[i] = ml;
+            opcionesObjetivoStr[i] = ml + " ml";
+            if (ml == objetivoAnterior) seleccionado = i;
         }
-        return super.onOptionsItemSelected(item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opcionesObjetivoStr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerObjetivo.setAdapter(adapter);
+        spinnerObjetivo.setSelection(seleccionado);
     }
 }

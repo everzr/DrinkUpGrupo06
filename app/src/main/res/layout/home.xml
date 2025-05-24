@@ -37,7 +37,7 @@
         android:layout_marginTop="50dp"
         >
         <TextView
-            android:id="@+id/tvConsumoActual"
+            android:id="@+id/tvConsumo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="500 ml"
@@ -59,7 +59,7 @@
             />
         <!-- Progreso del objetivo -->
         <TextView
-            android:id="@+id/tvProgresoObjetivo"
+            android:id="@+id/tvObjetivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -71,19 +71,23 @@
 
     </LinearLayout>
 
+        <TextView
+            android:id="@+id/tvProxRecordatorio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Próximo recordatorio en:"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:textColor="#555555" />
 
-
-
-    <!-- Próximo recordatorio -->
     <TextView
-        android:id="@+id/tvProximoRecordatorio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Próximo recordatorio en: 30 minutos"
-        android:textSize="16sp"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:textColor="#555555" />
+        android:id="@+id/fecha"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+
+        />
+
 
     <!-- Botón para registrar consumo -->
     <Button
@@ -93,7 +97,15 @@
         android:text="Registrar consumo de agua"
         android:layout_marginTop="32dp"
         android:backgroundTint="#1abc9c"
+        android:onClick="RegistrarConsumo"
         android:textColor="#FFFFFF" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:onClick="reload"
+        android:text="data reload"
+        />
 
 
 

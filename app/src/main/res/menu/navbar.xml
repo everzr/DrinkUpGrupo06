@@ -7,37 +7,53 @@
         android:id="@+id/nav_reminder"
         android:icon="@drawable/ic_reminder"
         android:title="@string/recordatorio"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:iconTint="@color/nav_item_color"
+        />
 
     <item
         android:id="@+id/nav_info"
         android:icon="@drawable/ic_info"
         android:title="@string/informaci_n"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:iconTint="@color/nav_item_color"
+
+        />
 
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
         android:title="@string/inicio"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:iconTint="@color/nav_item_color"
 
-    />
+        />
+
 
     <item
         android:id="@+id/nav_history"
         android:icon="@drawable/ic_history"
         android:title="@string/historial"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:iconTint="@color/nav_item_color"
+
+        />
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_profile"
         android:title="@string/perfil"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:iconTint="@color/nav_item_color"
+
+        />
 
     <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/ic_logout"
         android:title="Logout"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:iconTint="@color/nav_item_color"
+
+        />
 </menu>

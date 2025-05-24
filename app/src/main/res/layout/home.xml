@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+
+    tools:context=".HomeActivity">
+
+    <!-- Toolbar personalizada
+    <include
+        android:id="@+id/custom_toolbar"
+        layout="@layout/custom_toolbar" />
+    -->
+
+    <TextView
+        android:id="@+id/tvBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Bienvenido!"
+        android:textSize="30sp"
+        android:textColor="#2E59A6"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp" />
+
+
+    <!-- Consumo actual -->
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        >
+        <TextView
+            android:id="@+id/tvConsumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500 ml"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="#555555" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="/"
+            />
+        <!-- Progreso del objetivo -->
+        <TextView
+            android:id="@+id/tvObjetivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1000 ml"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="#555555" />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvProxRecordatorio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Próximo recordatorio en:"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:textColor="#555555" />
+
+    <TextView
+        android:id="@+id/fecha"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        />
+
+
+    <!-- Botón para registrar consumo -->
+    <Button
+        android:id="@+id/btnRegistrarConsumo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar consumo de agua"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#1abc9c"
+        android:onClick="RegistrarConsumo"
+        android:textColor="#FFFFFF" />
+
+
+
+
+
+</LinearLayout>

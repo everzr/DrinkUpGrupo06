@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="aqua">#E0EFF2</color>
+    <color name="grey">#A8A6A6</color>
+    <color name="azul_1">#1269DF</color> <!-- Color principal claro -->
+    <color name="azul_2">#0E5ACC</color>
+    <color name="azul_3">#094BBA</color>
+    <color name="azul_4">#053CA7</color>
+    <color name="azul_5">#002D94</color>
+    <color name="lavender">#8692F7</color>
+    <color name="azul_6">#1269DF</color>
+    <color name="fondo_azul_suave">#F0F5FF</color>
+    <color name="transparent">#00FDFDFD</color>
+
 </resources>

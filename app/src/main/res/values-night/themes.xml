@@ -1,7 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.DrinkUpGrupo06" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Base.Theme.DrinkUpGrupo06" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/azul_1</item>
+        <item name="colorPrimaryVariant">@color/azul_2</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <!-- Color secundario -->
+        <item name="colorSecondary">@color/azul_4</item>
+        <item name="colorSecondaryVariant">@color/azul_5</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+
+        <!-- Fondo y superficie -->
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="colorSurface">@color/azul_1</item>
     </style>
+
 </resources>

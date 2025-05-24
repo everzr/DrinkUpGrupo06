@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F6FA">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:paddingTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+   >
 
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_gravity="top"
         android:background="?attr/colorPrimary">
 
@@ -25,7 +33,7 @@
 
         <ImageButton
             android:id="@+id/btn_settings"
-            android:layout_width="10dp"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Diseño"
@@ -62,7 +70,7 @@
 
         android:id="@+id/number_cantidad"
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="70dp" />
 
     <!-- Botón registrar -->
     <Button
@@ -74,3 +82,4 @@
 
 
 </LinearLayout>
+</ScrollView>

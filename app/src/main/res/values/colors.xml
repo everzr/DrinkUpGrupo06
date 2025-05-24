@@ -10,4 +10,8 @@
     <color name="azul_4">#053CA7</color>
     <color name="azul_5">#002D94</color>
     <color name="lavender">#8692F7</color>
+    <color name="azul_6">#1269DF</color>
+    <color name="fondo_azul_suave">#F0F5FF</color>
+    <color name="transparent">#00FDFDFD</color>
+
 </resources>

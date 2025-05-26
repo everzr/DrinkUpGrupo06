@@ -45,13 +45,13 @@ public class InsertUserDataActivity extends AppCompatActivity {
 
         // Configurar NumberPicker para la edad
         numberPickerEdad = findViewById(R.id.numberPickerEdad);
-        numberPickerEdad.setMinValue(1);
+        numberPickerEdad.setMinValue(10);
         numberPickerEdad.setMaxValue(120);
 
         // Configurar NumberPicker para el peso
         numberPickerPeso = findViewById(R.id.numberPickerPeso);
         numberPickerPeso.setMinValue(30);
-        numberPickerPeso.setMaxValue(200);
+        numberPickerPeso.setMaxValue(500);
 
         // Configurar Spinner para el género
         spinnerGenero = findViewById(R.id.spinnerGenero);
@@ -86,8 +86,12 @@ public class InsertUserDataActivity extends AppCompatActivity {
             return;
         }
 
-        int objetivoDiario = peso * 35; // Valor sugerido
-        final int[] opciones = {objetivoDiario - 250, objetivoDiario, objetivoDiario + 250};
+        int objetivoDiario = calcularObjetivoDiario(edad, peso, actividad); // Valor sugerido
+        final int[] opciones = {
+                Math.max(objetivoDiario - 250, 1000), // mínimo de seguridad
+                objetivoDiario,
+                Math.min(objetivoDiario + 250, 4000)  // máximo recomendado
+        };
         String[] opcionesStr = {opciones[0] + " ml", opciones[1] + " ml", opciones[2] + " ml"};
 
         // Inflar el layout personalizado para el diálogo
@@ -101,7 +105,8 @@ public class InsertUserDataActivity extends AppCompatActivity {
 
         new AlertDialog.Builder(this)
                 .setTitle("Objetivo diario calculado")
-                .setMessage("Tu objetivo diario recomendado es " + objetivoDiario + " ml. ¿Deseas cambiarlo?")
+                .setMessage("Tu objetivo diario recomendado es " + objetivoDiario + " ml. ¿Deseas cambiarlo?" +
+                        "ADVERTENCIA: El objetivo diario máximo recomendado es 4000 ml. Exceder esta cantidad puede ser peligroso.")
                 .setView(dialogView)
                 .setPositiveButton("Aceptar", (dialog, which) -> {
                     int objetivoSeleccionado = opciones[spinnerObjetivo.getSelectedItemPosition()];
@@ -133,5 +138,35 @@ public class InsertUserDataActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Cancelar", null)
                 .show();
+    }
+
+    private int calcularObjetivoDiario(int edad, int peso, String actividad) {
+        double objetivo = peso * 35; // Base: 35 ml por kg
+
+        // Ajuste por actividad física
+        switch (actividad.toLowerCase()) {
+            case "intenso":
+                objetivo += 1000; // +1L para entrenamientos duros o trabajos físicos pesados
+                break;
+            case "moderado":
+                objetivo += 700; // +700 ml para ejercicio regular
+                break;
+            case "ligero":
+                objetivo += 400; // +400 ml para caminatas o tareas físicas suaves
+                break;
+            case "sedentario":
+            default:
+                break; // Sin incremento
+        }
+
+        // Ajuste por edad (si quieres aplicar alguno)
+        if (edad > 60) {
+            objetivo -= 250; // Ajuste leve para adultos mayores
+        }
+
+        // Límite superior para evitar excesos peligrosos
+        if (objetivo > 4000) objetivo = 4000;
+
+        return (int)objetivo;
     }
 }

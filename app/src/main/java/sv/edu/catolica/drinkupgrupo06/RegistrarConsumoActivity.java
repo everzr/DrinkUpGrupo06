@@ -23,7 +23,7 @@ import java.util.Locale;
 
 public class RegistrarConsumoActivity extends AppCompatActivity {
 
-    private int[] diseños = {R.drawable.ic_vaso, R.drawable.ic_jarra, R.drawable.ic_botella, R.drawable.ic_taza};
+    private int[] diseños = {R.drawable.ic_vaso2, R.drawable.ic_jarra2, R.drawable.ic_botella2, R.drawable.ic_taza1};
     private String[] nombresDiseños = {"Vaso", "Jarra", "Botella", "Taza"};
     private int diseñoSeleccionado = 0;
 

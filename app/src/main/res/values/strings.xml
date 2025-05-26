@@ -37,10 +37,10 @@
     <string name="datos_guardar_datos">Guardar Datos</string>
 
     <!-- Strings para el apartado de home -->
-    <string name="home_bienvenido">¡Bienvenido, %1$s!</string>
-    <string name="home_consumo">500 ml</string>
-    <string name="home_pleca">/</string>
-    <string name="home_obj_diario">1000 ml</string>
+    <string name="home_bienvenido">¡Hola, %1$s!</string>
+    <string name="home_consumo" translatable="false">500 ml</string>
+    <string name="home_pleca" translatable="false">/</string>
+    <string name="home_obj_diario" translatable="false">1000 ml</string>
     <string name="home_next_reminder">Próximo recordatorio en:</string>
     <string name="home_btn_registrar_consumo">Registrar consumo de agua</string>
 

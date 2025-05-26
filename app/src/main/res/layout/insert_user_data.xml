@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ingrese_sus_datos"
+                android:text="@string/datos_ingrese_sus_datos"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 android:textColor="@color/azul_1"
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edad:"
+                android:text="@string/datos_edad"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp" />
 
@@ -56,7 +56,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Género"
+                android:text="@string/datos_genero"
+                android:textColor="@color/black"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp" />
 
@@ -71,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Peso (kg)"
+                android:text="@string/datos_peso"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp" />
 
@@ -86,22 +87,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de actividad física"
+                android:text="@string/datos_typeactivity"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="8dp" />
 
             <Spinner
                 android:id="@+id/spinnerActividad"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_marginBottom="16dp" />
 
             <!-- Botón Guardar -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGuardarDatos"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="@string/guardar"
+                android:text="@string/datos_guardar_datos"
                 android:onClick="GuardarDatos"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"

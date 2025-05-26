@@ -28,7 +28,7 @@ android:paddingTop="20dp"
             android:layout_weight="1"
             android:layout_gravity="start"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Volver"
+            android:contentDescription="@string/consumo_volver"
             android:src="@drawable/ic_arrow_back" />
 
         <ImageButton
@@ -36,7 +36,7 @@ android:paddingTop="20dp"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Diseño"
+            android:contentDescription="@string/consumo_design"
             android:layout_weight="1"
             android:src="@drawable/ic_settings" />
     </LinearLayout>
@@ -78,7 +78,7 @@ android:paddingTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Registrar" />
+        android:text="@string/consumo_btn_registrar" />
 
 
 </LinearLayout>

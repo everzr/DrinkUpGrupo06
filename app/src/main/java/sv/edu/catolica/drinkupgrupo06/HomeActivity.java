@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
         String nombre = prefs.getString("nombre", "Usuario");
-        String mensajeBienvenida = getString(R.string.welcome_message, nombre);
+        String mensajeBienvenida = getString(R.string.home_bienvenido, nombre);
         tvBienvenida.setText(mensajeBienvenida);
 
         tvObjetivo = findViewById(R.id.tvObjetivo);
@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity {
         }); */
 
     }
-
+/*
     public void cerrarSesion(View view) {
         new AlertDialog.Builder(this)
                 .setTitle("Confirmación")
@@ -119,6 +119,8 @@ public class HomeActivity extends AppCompatActivity {
                 .setNegativeButton("No", null)
                 .show();
     }
+
+ */
 
     private boolean datosUsuarioCompletos() {
         int usuarioId = getSharedPreferences("usuario", MODE_PRIVATE).getInt("id", -1);

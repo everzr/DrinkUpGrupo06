@@ -16,27 +16,27 @@
             android:id="@+id/tvHora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hora"
+            android:text="@string/itemrecordatorio_hora"
             android:textSize="16sp"
             android:textStyle="bold"/>
         <TextView
             android:id="@+id/tvEstado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Estado"/>
+            android:text="@string/itemrecordatorio_estado"/>
 
         <TextView
             android:id="@+id/tvCantidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cantidad" />
+            android:text="@string/itemrecordatorio_cantidad" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar"
+        android:text="@string/itemrecordatorio_eliminar"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:backgroundTint="#e74c3c"

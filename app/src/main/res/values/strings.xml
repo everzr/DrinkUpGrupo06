@@ -1,25 +1,4 @@
 <resources>
-    <string name="app_name">DrinkUpGrupo06</string>
-    <string name="logo_de_la_aplicaci_n">Logo de la aplicación</string>
-    <string name="nombre">Nombre</string>
-    <string name="correo">Correo</string>
-    <string name="contrase_a">Contraseña</string>
-    <string name="registrar">Registrar</string>
-    <string name="correo_electr_nico">Correo electrónico</string>
-    <string name="contrase_aA">Contraseña</string>
-    <string name="iniciar_sesi_n">Iniciar sesión</string>
-    <string name="no_tienes_cuenta_reg_strate">¿No tienes cuenta? Regístrate</string>
-    <string name="ingrese_sus_datos">Ingrese sus datos</string>
-    <string name="peso_kg">Peso (kg)</string>
-    <string name="g_nero_m_f">Género (M/F)</string>
-    <string name="edad">Edad</string>
-    <string name="tipo_de_actividad_f_sica">Tipo de actividad física</string>
-    <string name="guardar">Guardar</string>
-    <string name="recordatorio">Recordatorio</string>
-    <string name="informaci_n">Información</string>
-    <string name="inicio">Inicio</string>
-    <string name="historial">Historial</string>
-    <string name="perfil">Perfil</string>
 
     <string-array name="genero_array">
         <item>M</item>
@@ -32,12 +11,72 @@
         <item>Moderado</item>
         <item>Intenso</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="welcome_message">¡Hola, %1$s!</string>
-    <string name="title_activity_main2">MainActivity2</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+
+
+    <!-- Strings para el apartado de login -->
+
+    <string name="texto__login_iniciar_sesion">Iniciar Sesión</string>
+    <string name="login_correo_electronico">Correo electrónico</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="login_btn_iniciar_sesion">Iniciar sesión</string>
+    <string name="login_btn_registrarse">¿No tienes cuenta? Regístrate</string>
+
+    <!-- Strings para el apartado de registrar -->
+    <string name="register_registrar_usuario">Registrar Usuario</string>
+    <string name="register_nombre">Nombre</string>
+    <string name="register_correo">Correo electrónico</string>
+    <string name="register_contrasena">Contraseña</string>
+    <string name="register_btn_registrarse">Registrarse</string>
+
+    <!-- Strings para el apartado de insertar datos de usuario -->
+    <string name="datos_ingrese_sus_datos">Ingrese sus datos</string>
+    <string name="datos_edad">Edad:</string>
+    <string name="datos_genero">Género</string>
+    <string name="datos_peso">Peso (kg)</string>
+    <string name="datos_typeactivity">Tipo de actividad física</string>
+    <string name="datos_guardar_datos">Guardar Datos</string>
+
+    <!-- Strings para el apartado de home -->
+    <string name="home_bienvenido">¡Hola, %1$s!</string>
+    <string name="home_consumo" translatable="false">500 ml</string>
+    <string name="home_pleca" translatable="false">/</string>
+    <string name="home_obj_diario" translatable="false">1000 ml</string>
+    <string name="home_next_reminder">Próximo recordatorio en:</string>
+    <string name="home_btn_registrar_consumo">Registrar consumo de agua</string>
+
+    <!-- Strings para el apartado de registro de consumo -->
+    <string name="consumo_volver">Volver</string>
+    <string name="consumo_design">Diseño</string>
+    <string name="consumo_btn_registrar">Registrar</string>
+
+    <!-- Strings para el apartado de recordatorios -->
+    <string name="recordatorio_titulo">Recordatorios</string>
+    <string name="recordatorio_agregar_recordatorio">Agregar recordatorio</string>
+    <string name="itemrecordatorio_hora">Hora</string>
+    <string name="itemrecordatorio_estado">Estado</string>
+    <string name="itemrecordatorio_cantidad">Cantidad</string>
+    <string name="itemrecordatorio_eliminar">Eliminar</string>
+    <string name="recordatorio_dialogo_titulo">Agregar Recordatorio</string>
+    <string name="recordatorio_dialogo_formato">Hora (Formato 24h)</string>
+    <string name="recordatorio_dialogo_cantidad_ml">Cantidad (ml)</string>
+    <string name="recordatorio_dialogo_2puntos">:</string>
+
+    <!-- Strings para el apartado de perfil -->
+    <string name="perfil_desc_img">Imagen de perfil</string>
+    <string name="perfil_titulo">Perfil de usuario</string>
+    <string name="perfil_nombre">Nombre</string>
+    <string name="perfil_correo">Correo electrónico</string>
+    <string name="perfil_edad">Edad</string>
+    <string name="perfil_genero">Género</string>
+    <string name="perfil_peso">Peso (kg)</string>
+    <string name="perfil_actividad">Actividad física</string>
+    <string name="perfil_objetivo">Objetivo diario (ml)</string>
+    <string name="perfil_btn">Editar</string>
+    <string name="perfil_btn_guardar">Guardar</string>
+
+    <!-- Strings para el apartado de historial -->
+
+    <!-- Strings para el apartado de x -->
 
 
 </resources>

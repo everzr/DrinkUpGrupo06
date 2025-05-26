@@ -17,4 +17,13 @@
 
     <style name="Theme.DrinkUpGrupo06" parent="Base.Theme.DrinkUpGrupo06" />
 
+    <style name="Theme.DrinkUpGrupo06.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DrinkUpGrupo06.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DrinkUpGrupo06.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

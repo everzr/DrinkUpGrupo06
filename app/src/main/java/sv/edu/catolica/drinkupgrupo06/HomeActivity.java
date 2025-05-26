@@ -20,7 +20,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
     private DataBase dbHelper;
@@ -158,6 +160,7 @@ public class HomeActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.nav_home) {
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
+            reload(null);
             overridePendingTransition(0, 0);
             finish();
 
@@ -253,13 +256,25 @@ public class HomeActivity extends AppCompatActivity {
 
 
         // 3. Próximo recordatorio
-        String horaActual = new java.text.SimpleDateFormat("HH:mm").format(new java.util.Date());
-        Cursor c3 = db.rawQuery("SELECT hora FROM recordatorios WHERE usuario_id = ? AND hora > ? ORDER BY hora ASC LIMIT 1", new String[]{String.valueOf(userId), horaActual});
+        String horaActual = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+
+        Cursor c3 = db.rawQuery(
+                "SELECT hora FROM recordatorios WHERE usuario_id = ? AND hora > ? ORDER BY hora ASC LIMIT 1",
+                new String[]{String.valueOf(userId), horaActual}
+        );
+
         String proximo = "No hay más recordatorios hoy";
         if (c3.moveToFirst() && c3.getString(0) != null) {
-            proximo = c3.getString(0);
+            String fechaCompleta = c3.getString(0);
+            try {
+                Date fecha = new SimpleDateFormat("HH:mm", Locale.getDefault()).parse(fechaCompleta);
+                proximo = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(fecha);
+            } catch (Exception e) {
+                proximo = fechaCompleta; // en caso de error, mostrar la fecha cruda
+            }
         }
         c3.close();
+
         tvProxRecordatorio.setText("Próximo recordatorio: " + proximo);
 
     }

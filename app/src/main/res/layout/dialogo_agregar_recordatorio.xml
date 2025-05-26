@@ -1,0 +1,76 @@
+<!-- res/layout/dialogo_agregar_recordatorio.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:clipToPadding="false"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:text="Agregar Recordatorio"
+        android:layout_gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#2E59A6"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Hora (Formato 24h)"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <NumberPicker
+            android:id="@+id/npHora"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#2E59A6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="20sp"
+            android:textColor="#2E59A6"
+            android:layout_marginHorizontal="6dp"
+            android:fontFamily="sans-serif-medium" />
+
+        <NumberPicker
+            android:id="@+id/npMinuto"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#2E59A6" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Cantidad (ml)"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <NumberPicker
+        android:id="@+id/npCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#2E59A6" />
+</LinearLayout>

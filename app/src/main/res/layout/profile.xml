@@ -39,13 +39,13 @@
                     android:clipToOutline="true"
                     android:outlineProvider="background"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/hello_blank_fragment" />
+                    android:contentDescription="@string/perfil_desc_img" />
 
                 <TextView
                     android:id="@+id/tv_profile_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Perfil de usuario"
+                    android:text="@string/perfil_titulo"
                     android:textStyle="bold"
                     android:textSize="22sp"
                     android:layout_marginBottom="20dp"
@@ -54,7 +54,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre"
+                    android:hint="@string/perfil_nombre"
                     android:layout_marginBottom="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -69,7 +69,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Correo electrónico"
+                    android:hint="@string/perfil_correo"
                     android:layout_marginBottom="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -84,7 +84,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Edad"
+                    android:hint="@string/perfil_edad"
                     android:layout_marginBottom="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -99,7 +99,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Género"
+                    android:text="@string/perfil_genero"
                     android:textColor="#555"
                     android:layout_marginBottom="2dp"/>
 
@@ -112,7 +112,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Peso (kg)"
+                    android:hint="@string/perfil_peso"
                     android:layout_marginBottom="12dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -127,7 +127,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Actividad física"
+                    android:text="@string/perfil_actividad"
                     android:textColor="#555"
                     android:layout_marginBottom="2dp"/>
 
@@ -140,7 +140,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Objetivo diario (ml)"
+                    android:text="@string/perfil_objetivo"
                     android:textColor="#555"
                     android:layout_marginBottom="2dp"/>
 
@@ -162,7 +162,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Editar"
+                        android:text="@string/perfil_btn"
                         android:backgroundTint="#1976D2"
                         android:textColor="#FFF"
                         android:layout_marginEnd="8dp"/>
@@ -172,7 +172,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Guardar"
+                        android:text="@string/perfil_btn_guardar"
                         android:backgroundTint="#43A047"
                         android:textColor="#FFF"
                         android:layout_marginStart="8dp"

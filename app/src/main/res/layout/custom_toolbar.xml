@@ -9,7 +9,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
 
     >
-
+    <!-- Strings para el apartado de login
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,5 +71,6 @@
             android:src="@drawable/ic_logout" />
 
     </LinearLayout>
+    -->
 
 </androidx.appcompat.widget.Toolbar>

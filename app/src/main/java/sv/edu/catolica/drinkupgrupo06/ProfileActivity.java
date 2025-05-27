@@ -89,14 +89,37 @@ public class ProfileActivity extends HomeActivity {
 
         btnSave.setOnClickListener(v -> {
             String nombre = editName.getText().toString().trim();
-            String edad = editAge.getText().toString().trim();
-            String peso = editWeight.getText().toString().trim();
+            String edadStr = editAge.getText().toString().trim();
+            String pesoStr = editWeight.getText().toString().trim();
             String genero = spinnerGender.getSelectedItem().toString();
             String actividad = spinnerActivity.getSelectedItem().toString();
             int objetivoSeleccionado = opcionesObjetivo[spinnerObjetivo.getSelectedItemPosition()];
 
-            if (nombre.isEmpty() || edad.isEmpty() || peso.isEmpty()) {
+            if (nombre.isEmpty() || edadStr.isEmpty() || pesoStr.isEmpty()) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int edad;
+            try {
+                edad = Integer.parseInt(edadStr);
+                if (edad <= 10 || edad > 120) {
+                    Toast.makeText(this, "Ingresa una edad válida entre 10 y 120 años", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "Edad debe ser un número válido", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            int peso;
+            try {
+                peso = Integer.parseInt(pesoStr);
+                if (peso <= 30 || peso > 500) {
+                    Toast.makeText(this, "Ingresa un peso válido entre 30 y 500 kg", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "Peso debe ser un número válido", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -109,9 +132,9 @@ public class ProfileActivity extends HomeActivity {
 
             prefs.edit()
                     .putString("nombre", nombre)
-                    .putString("edad", edad)
+                    .putString("edad", edadStr)
                     .putString("genero", genero)
-                    .putString("peso", peso)
+                    .putString("peso", pesoStr)
                     .putString("actividad_fisica", actividad)
                     .putInt("objetivo_diario_ml", objetivoSeleccionado)
                     .apply();
@@ -166,7 +189,7 @@ public class ProfileActivity extends HomeActivity {
     }
 
     private void cargarOpcionesObjetivo() {
-        int min = 1000, max = 5000, paso = 100;
+        int min = 1000, max = 4000, paso = 50;
         int total = ((max - min) / paso) + 1;
         opcionesObjetivo = new int[total];
         opcionesObjetivoStr = new String[total];

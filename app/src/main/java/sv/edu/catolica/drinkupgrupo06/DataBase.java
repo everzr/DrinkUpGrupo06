@@ -4,10 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.List;
+
 public class DataBase extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "drinkup.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 3;
 
     public DataBase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -70,4 +72,5 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS usuarios");
         onCreate(db);
     }
+
 }

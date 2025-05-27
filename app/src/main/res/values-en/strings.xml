@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="texto__login_iniciar_sesion">Login</string>
+    <string name="login_correo_electronico">Email address</string>
+    <string name="login_contrasena">Password</string>
+    <string name="login_btn_iniciar_sesion">Login</string>
+    <string name="login_btn_registrarse">Have you registered? Register</string>
+    <string name="register_registrar_usuario">User  Register</string>
+    <string name="register_nombre">Name</string>
+    <string name="register_correo">Email address</string>
+    <string name="register_contrasena">Password</string>
+    <string name="register_btn_registrarse">Register</string>
+    <string name="datos_ingrese_sus_datos">Insert your information</string>
+    <string name="datos_edad">Age:</string>
+    <string name="datos_genero">Gender</string>
+    <string name="datos_peso">Weight:</string>
+    <string name="datos_typeactivity">Type of physical activity</string>
+    <string name="datos_guardar_datos">Save</string>
+    <string name="home_bienvenido">¡Hello, %1$s!</string>
+    <string name="home_next_reminder">Next reminder</string>
+    <string name="home_btn_registrar_consumo">"Record water consumption "</string>
+    <string name="consumo_volver">Back</string>
+    <string name="consumo_design">Design</string>
+    <string name="consumo_btn_registrar">Register</string>
+    <string name="recordatorio_titulo">Reminders</string>
+</resources>

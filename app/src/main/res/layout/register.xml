@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrar Usuario"
+        android:text="@string/register_registrar_usuario"
         android:textSize="26sp"
         android:textStyle="bold"
         android:textColor="@color/azul_1"
@@ -47,7 +47,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etNombre"
-            android:hint="Nombre"
+            android:hint="@string/register_nombre"
             android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -60,7 +60,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etCorreo"
-            android:hint="Correo electrónico"
+            android:hint="@string/register_correo"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -74,7 +74,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etContrasena"
-            android:hint="Contraseña"
+            android:hint="@string/register_contrasena"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -84,7 +84,7 @@
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="@string/register_btn_registrarse"
         android:onClick="RegistrarUsuario"
         android:textStyle="bold"
         android:textColor="@android:color/white"

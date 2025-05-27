@@ -12,6 +12,9 @@
         <item>Intenso</item>
     </string-array>
 
+    <string name="app_name">DrinkUpGrupo06</string>
+    <string name="logo_de_la_aplicaci_n">Logo de la aplicación</string>
+
 
     <!-- Strings para el apartado de login -->
 
@@ -59,7 +62,7 @@
     <string name="recordatorio_dialogo_titulo">Agregar Recordatorio</string>
     <string name="recordatorio_dialogo_formato">Hora (Formato 24h)</string>
     <string name="recordatorio_dialogo_cantidad_ml">Cantidad (ml)</string>
-    <string name="recordatorio_dialogo_2puntos">:</string>
+    <string name="recordatorio_dialogo_2puntos" translatable="false">:</string>
 
     <!-- Strings para el apartado de perfil -->
     <string name="perfil_desc_img">Imagen de perfil</string>
@@ -73,6 +76,11 @@
     <string name="perfil_objetivo">Objetivo diario (ml)</string>
     <string name="perfil_btn">Editar</string>
     <string name="perfil_btn_guardar">Guardar</string>
+    <string name="recordatorio">Recordatorios</string>
+    <string name="informaci_n">Información</string>
+    <string name="inicio">Inicio\n</string>
+    <string name="historial">Historial</string>
+    <string name="perfil">Perfil\n</string>
 
     <!-- Strings para el apartado de historial -->
 

@@ -13,5 +13,7 @@
     <color name="azul_6">#1269DF</color>
     <color name="fondo_azul_suave">#F0F5FF</color>
     <color name="transparent">#00FDFDFD</color>
+    <color name="teal_700">#018786</color>
+
 
 </resources>

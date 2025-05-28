@@ -47,7 +47,6 @@ public class ReminderActivity extends HomeActivity {
     DataBase dbHelper;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +58,6 @@ public class ReminderActivity extends HomeActivity {
             v.setPadding(v.getPaddingLeft(), systemBars.top, v.getPaddingRight(), systemBars.bottom);
             return insets;
         });
-
 
 
         listView = findViewById(R.id.listViewRecordatorios);
@@ -82,7 +80,7 @@ public class ReminderActivity extends HomeActivity {
         cargarRecordatorios(usuarioId);
 
         fab.setOnClickListener(v -> {
-           CrearRecordatorio(v);
+            CrearRecordatorio(v);
             Toast.makeText(this, "Agregar recordatorio", Toast.LENGTH_SHORT).show();
         });
 
@@ -136,17 +134,21 @@ public class ReminderActivity extends HomeActivity {
             for (int i = 0; i < recordatoriosFinales; i++) {
                 String hora = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(cal.getTime());
 
-                db.execSQL("INSERT INTO recordatorios (usuario_id, hora, cantidad_ml) VALUES (?, ?, ?)",
-                        new Object[]{usuarioId, hora, cantidadPorToma});
+                ContentValues values = new ContentValues();
+                values.put("usuario_id", usuarioId);
+                values.put("hora", hora);
+                values.put("cantidad_ml", cantidadPorToma);
 
-                programarNotificacion(hora, cantidadPorToma);
+                long result = db.insert("recordatorios", null, values);
+                if (result != -1) {
+                    programarNotificacion(hora, cantidadPorToma, result); // Aquí se programa la notificación, el reult es el ID del recordatorio insertado
+                    cal.add(Calendar.HOUR_OF_DAY, intervalo);
+                }
 
-                cal.add(Calendar.HOUR_OF_DAY, intervalo);
             }
         }
         c.close();
     }
-
 
 
     private void cargarRecordatorios(int usuarioId) {
@@ -183,7 +185,8 @@ public class ReminderActivity extends HomeActivity {
 
     }
 
-    private void programarNotificacion(String horaTexto, int cantidadMl) {
+    private void programarNotificacion(String horaTexto, int cantidadMl, long idRecordatorio) {
+        int idReminder = (int) idRecordatorio; // Asegurarse de que el ID sea un entero
         Calendar calendar = Calendar.getInstance();
         String[] partes = horaTexto.split(":");
         calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(partes[0]));
@@ -191,21 +194,41 @@ public class ReminderActivity extends HomeActivity {
         calendar.set(Calendar.SECOND, 0);
 
         long tiempo = calendar.getTimeInMillis();
-        if (tiempo < System.currentTimeMillis()) return; // Evita notificaciones en el pasado
+        if (tiempo < System.currentTimeMillis()) {
+            calendar.add(Calendar.DAY_OF_YEAR, 1);  // Si la hora ya pasó hoy, empieza mañana
+            tiempo = calendar.getTimeInMillis();
+        }
 
         Intent intent = new Intent(this, NotificationReceiver.class);
         intent.putExtra("hora", horaTexto);
         intent.putExtra("cantidad", cantidadMl);
+        intent.putExtra("idRecordatorio", idReminder); // Pasar el ID del recordatorio
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 this,
-                (int) System.currentTimeMillis(), // ID único
+                idReminder,  //Id del recordatorio extraido de la bd ---- anates era textohora.hash ID único basado en la hora
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, tiempo, pendingIntent);
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                alarmManager.setExactAndAllowWhileIdle(
+                        AlarmManager.RTC_WAKEUP,
+                        tiempo,
+                        pendingIntent
+                );
+            } else {
+                alarmManager.setExact(
+                        AlarmManager.RTC_WAKEUP,
+                        tiempo,
+                        pendingIntent
+                );
+            }
+        } catch (SecurityException e) {
+            Log.e("AlarmError", "No se pudo programar la alarma", e);
+        }
     }
 
     private void crearCanalNotificacion() {
@@ -269,9 +292,10 @@ public class ReminderActivity extends HomeActivity {
         values.put("cantidad_ml", cantidadMl);
 
         long result = db.insert("recordatorios", null, values);
+
         if (result != -1) {
             Toast.makeText(this, "Recordatorio agregado", Toast.LENGTH_SHORT).show();
-            programarNotificacion(horaTexto, cantidadMl); // Aquí
+            programarNotificacion(horaTexto, cantidadMl, result); // Aquí
             cargarRecordatorios(userId); // Recargar la lista de recordatorios
         } else {
             Toast.makeText(this, "Error al guardar", Toast.LENGTH_SHORT).show();
@@ -296,9 +320,6 @@ public class ReminderActivity extends HomeActivity {
 
         npMinuto.setMinValue(0);
         npMinuto.setMaxValue(59);
-
-        npCantidad.setMinValue(1);
-        npCantidad.setMaxValue(2000);
 
         // Convertir la hora string a enteros
         String[] partesHora = recordatorio.hora.split(":");
@@ -330,14 +351,40 @@ public class ReminderActivity extends HomeActivity {
     }
 
     public void eliminarRecordatorio(int id) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("recordatorios", "id = ?", new String[]{String.valueOf(id)});
-        Toast.makeText(this, "Recordatorio eliminado", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
-        int usuarioId = prefs.getInt("id", -1);
-        cargarRecordatorios(usuarioId); // recargar la lista
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        int filasEliminadas = db.delete("recordatorios", "id = ?", new String[]{String.valueOf(id)});
+
+        if (filasEliminadas > 0) {
+            Toast.makeText(this, "Recordatorio eliminado correctamente", Toast.LENGTH_SHORT).show();
+            cancelarAlarma(id); // Cancelar la alarma antes de eliminar el recordatorio
+
+            SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
+            int usuarioId = prefs.getInt("id", -1);
+            cargarRecordatorios(usuarioId); // Recargar la lista
+        } else {
+            Toast.makeText(this, "No se pudo eliminar el recordatorio", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
+    private void cancelarAlarma(int idRecordatorio) {
+        Intent intent = new Intent(this, NotificationReceiver.class); // usa tu receiver
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this,
+                idRecordatorio, // debe ser el mismo que usaste al programar
+                intent,
+                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+
 
     private void actualizarRecordatorioEnBD(int id, String horaTexto, int cantidadMl) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -350,7 +397,8 @@ public class ReminderActivity extends HomeActivity {
             Toast.makeText(this, "Recordatorio actualizado", Toast.LENGTH_SHORT).show();
 
             // Reprogramar notificación
-            programarNotificacion(horaTexto, cantidadMl);
+            cancelarAlarma(id); // Cancelar la alarma existente
+            programarNotificacion(horaTexto, cantidadMl, id);
 
             // Volver a cargar la lista
             SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);

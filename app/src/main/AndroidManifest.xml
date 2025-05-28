@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -52,6 +56,10 @@
             android:name=".LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity android:name=".ResumenDiaActivity" />
+        <activity android:name=".GraficoActivity" />
+
+
         <activity
             android:name=".SplashScreen"
             android:exported="true"

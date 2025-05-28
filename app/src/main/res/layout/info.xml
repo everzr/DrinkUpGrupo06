@@ -1,13 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:orientation="vertical"
-    android:padding="40dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fitsSystemWindows="true"
     tools:context=".InfoActivity">
 
+    <LinearLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvInfoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consejos de Hidratación"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/azul_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Tarjeta 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:maxWidth="320dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/tip1"
+                android:scaleType="centerCrop"
+                android:contentDescription="Bebe agua diariamente"
+                android:background="#BBDEFB"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8 vasos diarios"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:padding="12dp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bebe al menos 8 vasos de agua al día para mantener una buena hidratación."
+                android:textSize="14sp"
+                android:textColor="#666"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="12dp"/>
+        </LinearLayout>
+
+        <!-- Tarjeta 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:maxWidth="320dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/tip2"
+                android:scaleType="centerCrop"
+                android:contentDescription="Botella reutilizable"
+                android:background="#BBDEFB"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Botella siempre contigo"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:padding="12dp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lleva una botella reutilizable para recordar hidratarte durante el día."
+                android:textSize="14sp"
+                android:textColor="#666"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="12dp"/>
+        </LinearLayout>
+
+        <!-- Tarjeta 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:maxWidth="320dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/tip3"
+                android:scaleType="centerCrop"
+                android:contentDescription="Frutas hidratantes"
+                android:background="#BBDEFB"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frutas hidratantes"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:padding="12dp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sandía, melón y naranjas son excelentes para complementar tu hidratación."
+                android:textSize="14sp"
+                android:textColor="#666"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="12dp"/>
+        </LinearLayout>
+
+        <!-- Tarjeta 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:maxWidth="320dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:elevation="4dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/tip4"
+                android:scaleType="centerCrop"
+                android:contentDescription="Evita bebidas dañinas"
+                android:background="#BBDEFB"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reduce bebidas perjudiciales"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:padding="12dp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Limita el consumo de alcohol, café y bebidas azucaradas que deshidratan."
+                android:textSize="14sp"
+                android:textColor="#666"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

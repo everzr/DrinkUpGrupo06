@@ -9,5 +9,22 @@
     android:padding="40dp"
     tools:context=".HistoryActivity">
 
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mcv_showOtherDates="all"
+
+        app:mcv_arrowColor="@color/black"
+        />
+
+    <Button
+        android:id="@+id/btnGenerarGrafico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/generar_grafico_en_historial"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
 </LinearLayout>

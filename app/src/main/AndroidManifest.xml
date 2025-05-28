@@ -52,6 +52,10 @@
             android:name=".LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity android:name=".ResumenDiaActivity" />
+        <activity android:name=".GraficoActivity" />
+
+
         <activity
             android:name=".SplashScreen"
             android:exported="true"

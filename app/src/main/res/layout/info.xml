@@ -123,7 +123,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:src="@drawable/tip3"
+                android:src="@drawable/tip6"
                 android:scaleType="centerCrop"
                 android:contentDescription="Frutas hidratantes"
                 android:background="#BBDEFB"/>
@@ -163,8 +163,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:src="@drawable/tip4"
                 android:scaleType="centerCrop"
+                android:src="@drawable/tip4"
                 android:contentDescription="Evita bebidas dañinas"
                 android:background="#BBDEFB"/>
 

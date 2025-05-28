@@ -8,7 +8,7 @@
     android:background="#F5F6FA">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:paddingTop="20dp"
+android:paddingTop="26dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,28 +17,33 @@ android:paddingTop="20dp"
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="top"
-        android:background="?attr/colorPrimary">
+        android:layout_height="56dp"
+        android:background="#388CC8"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp">
 
         <ImageButton
             android:id="@+id/btn_back"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="start"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/consumo_volver"
-            android:src="@drawable/ic_arrow_back" />
+            android:src="@drawable/ic_arrow_back"
+            app:tint="#FFFFFF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/btn_settings"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/consumo_design"
-            android:layout_weight="1"
-            android:src="@drawable/ic_settings" />
+            android:src="@drawable/ic_settings"
+            app:tint="#FFFFFF" />
     </LinearLayout>
 
     <!-- Imagen/diseño dinámico -->
@@ -67,16 +72,18 @@ android:paddingTop="20dp"
 
     <!-- Spinner para cantidad -->
     <NumberPicker
-
         android:id="@+id/number_cantidad"
-        android:layout_width="match_parent"
-        android:layout_height="70dp" />
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:layout_width="300dp"
+        android:layout_height="80dp" />
 
     <!-- Botón registrar -->
     <Button
         android:id="@+id/btn_registrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginTop="12dp"
         android:text="@string/consumo_btn_registrar" />
 

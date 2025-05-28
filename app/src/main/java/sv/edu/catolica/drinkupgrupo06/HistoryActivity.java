@@ -88,8 +88,8 @@ public class HistoryActivity extends HomeActivity {
             try {
                 Date fecha = sdf.parse(fechaStr);
                 int color = (cantidad >= objetivoDiario)
-                        ? Color.parseColor("#2196F3")  // Azul
-                        : Color.parseColor("#FFA500"); // Anaranjado
+                        ? Color.parseColor("#B3E5FC")  // Azul
+                        : Color.parseColor("#FFC300"); // Anaranjado
 
                 calendarView.addDecorator(new DayDecorator(fecha, color));
             } catch (ParseException e) {

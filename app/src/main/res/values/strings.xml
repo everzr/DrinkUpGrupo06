@@ -82,7 +82,16 @@
     <string name="historial">Historial</string>
     <string name="perfil">Perfil\n</string>
 
+
     <!-- Strings para el apartado de historial -->
+    <string name="generar_grafico_en_historial">Generar gráfico</string>
+
+    <!-- Strings para el apartado del gráfico-->
+    <string name="grafico_del_mes_en_activity_grafico">Gráfico del mes</string>
+
+    <!-- Strings para el apartado de notas -->
+    <string name="agregar_nota_en_activity_resumen_dia">Agregar nota</string>
+
 
     <!-- Strings para el apartado de x -->
 

@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,6 +41,9 @@ public class GraficoActivity extends AppCompatActivity{
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
+        ImageButton btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void cargarDatosConsumo(int mes, int anio) {

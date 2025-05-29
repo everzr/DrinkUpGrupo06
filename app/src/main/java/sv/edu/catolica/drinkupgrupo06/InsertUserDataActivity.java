@@ -82,7 +82,7 @@ public class InsertUserDataActivity extends AppCompatActivity {
         String actividad = spinnerActividad.getSelectedItem().toString();
 
         if (genero.isEmpty() || actividad.isEmpty()) {
-            Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.por_favor_completa_insert, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -104,11 +104,11 @@ public class InsertUserDataActivity extends AppCompatActivity {
         spinnerObjetivo.setSelection(1);
 
         new AlertDialog.Builder(this)
-                .setTitle("Objetivo diario calculado")
-                .setMessage("Tu objetivo diario recomendado es " + objetivoDiario + " ml. ¿Deseas cambiarlo?" +
-                        "ADVERTENCIA: El objetivo diario máximo recomendado es 4000 ml. Exceder esta cantidad puede ser peligroso.")
+                .setTitle(R.string.objetivo_diario_calculado)
+                .setMessage(getString(R.string.tu_objetivo_diario_recomendado_es) + objetivoDiario + getString(R.string.ml_deseas_cambiarlo) +
+                        getString(R.string.advertencia_el_objetivo_max))
                 .setView(dialogView)
-                .setPositiveButton("Aceptar", (dialog, which) -> {
+                .setPositiveButton(R.string.aceptar_insert, (dialog, which) -> {
                     int objetivoSeleccionado = opciones[spinnerObjetivo.getSelectedItemPosition()];
 
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -116,7 +116,7 @@ public class InsertUserDataActivity extends AppCompatActivity {
 
                     int usuarioId = getSharedPreferences("usuario", MODE_PRIVATE).getInt("id", -1);
                     if (usuarioId == -1) {
-                        Toast.makeText(this, "Error al obtener el usuario", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.error_al_obtener_el_usuario_insert, Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -129,14 +129,14 @@ public class InsertUserDataActivity extends AppCompatActivity {
 
                     long result = db.insert("datos_usuario", null, values);
                     if (result != -1) {
-                        Toast.makeText(this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.datos_guardados_insert, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(this, HomeActivity.class));
                         finish();
                     } else {
-                        Toast.makeText(this, "Error al guardar los datos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.error_al_guardar_insert, Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setNegativeButton("Cancelar", null)
+                .setNegativeButton(R.string.cancelar_insert, null)
                 .show();
     }
 

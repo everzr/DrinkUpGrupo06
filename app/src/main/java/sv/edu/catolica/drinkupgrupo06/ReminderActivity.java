@@ -68,7 +68,7 @@ public class ReminderActivity extends HomeActivity {
         int usuarioId = prefs.getInt("id", -1);
 
         if (usuarioId == -1) {
-            Toast.makeText(this, "Error: Usuario no identificado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_usuario_no_identificado_reminder, Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -81,7 +81,7 @@ public class ReminderActivity extends HomeActivity {
 
         fab.setOnClickListener(v -> {
             CrearRecordatorio(v);
-            Toast.makeText(this, "Agregar recordatorio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.agregar_recordatorio_reminder, Toast.LENGTH_SHORT).show();
         });
 
         listView.setOnItemClickListener((adapterView, view, position, id) -> {
@@ -169,7 +169,7 @@ public class ReminderActivity extends HomeActivity {
                 int cantidad = c.getInt(2);
 
                 Date horaRecordatorio = sdf.parse(horaStr);
-                String estado = horaRecordatorio.before(horaActual) ? "Anterior" : "Próximo";
+                String estado = horaRecordatorio.before(horaActual) ? getString(R.string.anterior_reminder) : getString(R.string.pr_ximo__reminder);
 
                 lista.add(new Recordatorio(id, horaStr, estado, cantidad));
             }
@@ -200,8 +200,8 @@ public class ReminderActivity extends HomeActivity {
         }
 
         Intent intent = new Intent(this, NotificationReceiver.class);
-        intent.putExtra("hora", horaTexto);
-        intent.putExtra("cantidad", cantidadMl);
+        intent.putExtra(getString(R.string.hora_reminder), horaTexto);
+        intent.putExtra(getString(R.string.cantidad_reminder), cantidadMl);
         intent.putExtra("idRecordatorio", idReminder); // Pasar el ID del recordatorio
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
@@ -233,8 +233,8 @@ public class ReminderActivity extends HomeActivity {
 
     private void crearCanalNotificacion() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence nombre = "Recordatorios";
-            String descripcion = "Notificaciones para beber agua";
+            CharSequence nombre = getString(R.string.recordatorios_reminder);
+            String descripcion = getString(R.string.notificaciones_para_beber_agua_reminder);
             int importancia = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel canal = new NotificationChannel("recordatorio_channel", nombre, importancia);
             canal.setDescription(descripcion);
@@ -265,7 +265,7 @@ public class ReminderActivity extends HomeActivity {
         npCantidad.setWrapSelectorWheel(false);
         npCantidad.setValue(125); // Valor por defecto
 
-        builder.setPositiveButton("Guardar", (dialog, which) -> {
+        builder.setPositiveButton(R.string.guardar_reminder, (dialog, which) -> {
             int hora = npHora.getValue();
             int minuto = npMinuto.getValue();
             int cantidad = npCantidad.getValue();
@@ -274,7 +274,7 @@ public class ReminderActivity extends HomeActivity {
             guardarRecordatorioEnBD(horaTexto, cantidad);
         });
 
-        builder.setNegativeButton("Cancelar", null);
+        builder.setNegativeButton(R.string.cancelar_reminder, null);
         builder.show();
     }
 
@@ -312,7 +312,7 @@ public class ReminderActivity extends HomeActivity {
         NumberPicker npCantidad = dialogView.findViewById(R.id.npCantidad);
 
         // Cambiar título a "Editar Recordatorio"
-        tvTitulo.setText("Editar Recordatorio");
+        tvTitulo.setText(R.string.editar_recordatorio_reminder);
 
         // Configurar NumberPickers
         npHora.setMinValue(0);
@@ -357,14 +357,14 @@ public class ReminderActivity extends HomeActivity {
         int filasEliminadas = db.delete("recordatorios", "id = ?", new String[]{String.valueOf(id)});
 
         if (filasEliminadas > 0) {
-            Toast.makeText(this, "Recordatorio eliminado correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.recordatorio_eliminado_correctamente, Toast.LENGTH_SHORT).show();
             cancelarAlarma(id); // Cancelar la alarma antes de eliminar el recordatorio
 
             SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
             int usuarioId = prefs.getInt("id", -1);
             cargarRecordatorios(usuarioId); // Recargar la lista
         } else {
-            Toast.makeText(this, "No se pudo eliminar el recordatorio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.no_se_pudo_eliminar_el_recordatorio, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -394,7 +394,7 @@ public class ReminderActivity extends HomeActivity {
 
         int result = db.update("recordatorios", values, "id = ?", new String[]{String.valueOf(id)});
         if (result > 0) {
-            Toast.makeText(this, "Recordatorio actualizado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.recordatorio_actualizado, Toast.LENGTH_SHORT).show();
 
             // Reprogramar notificación
             cancelarAlarma(id); // Cancelar la alarma existente
@@ -405,7 +405,7 @@ public class ReminderActivity extends HomeActivity {
             int userId = prefs.getInt("id", -1);
             cargarRecordatorios(userId);
         } else {
-            Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_al_actualizar, Toast.LENGTH_SHORT).show();
         }
     }
 

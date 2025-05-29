@@ -60,16 +60,16 @@ public class LoginActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString().trim();
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.completa_todos_los_campos_login, Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (validarCredenciales(email, password)) {
-            Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.inicio_de_sesion, Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         } else {
-            Toast.makeText(this, "Credenciales incorrectas. Intenta nuevamente.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.credenciales_incorrectas, Toast.LENGTH_SHORT).show();
         }
     }
 

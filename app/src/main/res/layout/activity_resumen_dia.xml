@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,11 +10,12 @@
         android:id="@+id/btn_back"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_gravity="start"
+        android:layout_weight="1"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/consumo_volver"
-        android:src="@drawable/arrowblue" />
+        android:src="@drawable/arrowblue"
+        tools:ignore="ObsoleteLayoutParam,TouchTargetSizeCheck" />
 
 
     <LinearLayout
@@ -60,7 +62,8 @@
             android:textColor="#1414b8"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardNota"
@@ -91,7 +94,7 @@
             android:id="@+id/btnEditarNota"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="Editar"
+            android:text="@string/editar_btn"
             android:textSize="15sp"
             android:backgroundTint="#B3E5FC"
             android:textColor="#0D47A1"

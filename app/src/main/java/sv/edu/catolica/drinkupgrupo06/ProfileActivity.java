@@ -96,18 +96,18 @@ public class ProfileActivity extends HomeActivity {
             int objetivoSeleccionado = opcionesObjetivo[spinnerObjetivo.getSelectedItemPosition()];
 
             if (nombre.isEmpty() || edadStr.isEmpty() || pesoStr.isEmpty()) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.completa_todos_profile, Toast.LENGTH_SHORT).show();
                 return;
             }
             int edad;
             try {
                 edad = Integer.parseInt(edadStr);
                 if (edad <= 10 || edad > 120) {
-                    Toast.makeText(this, "Ingresa una edad válida entre 10 y 120 años", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.ingresa_una_edad, Toast.LENGTH_SHORT).show();
                     return;
                 }
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Edad debe ser un número válido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.edad_debe_ser_profile, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -115,11 +115,11 @@ public class ProfileActivity extends HomeActivity {
             try {
                 peso = Integer.parseInt(pesoStr);
                 if (peso <= 30 || peso > 500) {
-                    Toast.makeText(this, "Ingresa un peso válido entre 30 y 500 kg", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.ingresa_un_peso, Toast.LENGTH_SHORT).show();
                     return;
                 }
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Peso debe ser un número válido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.peso_debe_ser_un_n_mero_v_lido_profile, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -131,12 +131,12 @@ public class ProfileActivity extends HomeActivity {
             }
 
             prefs.edit()
-                    .putString("nombre", nombre)
-                    .putString("edad", edadStr)
-                    .putString("genero", genero)
-                    .putString("peso", pesoStr)
-                    .putString("actividad_fisica", actividad)
-                    .putInt("objetivo_diario_ml", objetivoSeleccionado)
+                    .putString(getString(R.string.nombre_profile), nombre)
+                    .putString(getString(R.string.edad_profile), edadStr)
+                    .putString(getString(R.string.genero_profile), genero)
+                    .putString(getString(R.string.peso_profile), pesoStr)
+                    .putString(getString(R.string.actividad_fisica_profile), actividad)
+                    .putInt(getString(R.string.objetivo_diario_ml_profile), objetivoSeleccionado)
                     .apply();
 
             editName.setEnabled(false);
@@ -150,7 +150,7 @@ public class ProfileActivity extends HomeActivity {
 
             objetivoAnterior = objetivoSeleccionado;
 
-            Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.datos_actualizados_profile, Toast.LENGTH_SHORT).show();
         });
     }
 

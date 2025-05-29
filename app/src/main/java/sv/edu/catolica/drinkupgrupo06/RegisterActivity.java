@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         String contrasena = etContrasena.getText().toString().trim();
 
         if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty()) {
-            Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.completa_todos_los_campos, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -61,10 +61,10 @@ public class RegisterActivity extends AppCompatActivity {
         long resultado = db.insert("usuarios", null, valores);
 
         if (resultado != -1) {
-            Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.usuario_registrado_correctamente, Toast.LENGTH_SHORT).show();
             finish(); // opcional: regresa al login
         } else {
-            Toast.makeText(this, "Error: correo ya registrado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_correo_ya_registrado, Toast.LENGTH_SHORT).show();
         }
     }
 }

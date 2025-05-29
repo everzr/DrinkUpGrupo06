@@ -32,12 +32,12 @@ public class RecordatorioAdapter extends ArrayAdapter<Recordatorio> {
             if (getContext() instanceof ReminderActivity) {
 
                 new AlertDialog.Builder(getContext())
-                        .setTitle("Eliminar")
-                        .setMessage("¿Deseas eliminar este recordatorio?")
-                        .setPositiveButton("Sí", (dialog, which) -> {
+                        .setTitle(R.string.eliminar_recoradapter)
+                        .setMessage(R.string.deseas_eliminar_este_recordatorio)
+                        .setPositiveButton(R.string.si, (dialog, which) -> {
                             ((ReminderActivity) getContext()).eliminarRecordatorio(recordatorio.id);
                         })
-                        .setNegativeButton("Cancelar", null)
+                        .setNegativeButton(R.string.cancelar_recoradapter, null)
                         .show();
 
             }
@@ -46,9 +46,9 @@ public class RecordatorioAdapter extends ArrayAdapter<Recordatorio> {
         TextView tvEstado = convertView.findViewById(R.id.tvEstado);
         TextView tvCantidad = convertView.findViewById(R.id.tvCantidad);
 
-        tvHora.setText("Hora: " + recordatorio.hora);
-        tvEstado.setText("Estado: " + recordatorio.estado);
-        tvCantidad.setText("Cantidad: " + recordatorio.cantidad + " ml");
+        tvHora.setText(getContext().getString(R.string.hora_recoradapter) + recordatorio.hora);
+        tvEstado.setText(getContext().getString(R.string.estado_recoradapter) + recordatorio.estado);
+        tvCantidad.setText(getContext().getString(R.string.cantidad_recoradapter) + recordatorio.cantidad + " ml");
 
         return convertView;
     }

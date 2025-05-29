@@ -12,8 +12,8 @@
         <item>Intenso</item>
     </string-array>
 
-    <string name="app_name">DrinkUpGrupo06</string>
-    <string name="logo_de_la_aplicaci_n">Logo de la aplicación</string>
+    <string name="app_name" translatable="false">DrinkUp</string>
+    <string name="logo_de_la_aplicaci_n" translatable="false">Logo de la aplicación</string>
 
 
     <!-- Strings para el apartado de login -->
@@ -91,9 +91,197 @@
 
     <!-- Strings para el apartado de notas -->
     <string name="agregar_nota_en_activity_resumen_dia">Agregar nota</string>
+    <string name="editar_btn">Editar</string>
+
+    <!-- Strings para el apartado de tips cortos -->
+    <string name="frutas_hidratantes_info">Frutas hidratantes</string>
+    <string name="frutas_hidratantes_img">Frutas hidratantes</string>
+    <string name="texto_descripcion">Sandía, melón y naranjas son excelentes para complementar tu hidratación.</string>
+    <string name="evita_bebidas_img">Evita bebidas dañinas</string>
+    <string name="reduce_bebidas_perjudiciales">Reduce bebidas perjudiciales</string>
+    <string name="limita_el_consumo_de_alcohol">Limita el consumo de alcohol, café y bebidas azucaradas que deshidratan.</string>
+    <string name="botella_reutilizable_img">Botella reutilizable</string>
+    <string name="botella_siempre_contigo">Botella siempre contigo</string>
+    <string name="lleva_una_botella_reutilizable_text">Lleva una botella reutilizable para recordar hidratarte durante el día.</string>
+    <string name="consejos_de_hidratacion_text">Consejos de Hidratación</string>
+    <string name="bebe_agua_diariamente_img">Bebe agua diariamente</string>
+    <string name="_8_vasos_diarios_text">8 vasos diarios</string>
+    <string name="bebe_al_menos_8_vasos_text">Bebe al menos 8 vasos de agua al día para mantener una buena hidratación.</string>
+
+    <!-- Strings para el apartado de resumen del dia -->
+
+    <string name="fecha_resumen_dia">"Fecha: "</string>
+    <string name="objetivo_resumen_dia">"Objetivo: "</string>
+    <string name="total_consumido_resumen_dia">"Total consumido: "</string>
+    <string name="estado_resumen_dia">"Estado: "</string>
+    <string name="escribe_tu_nota_aqu">Escribe tu nota aquí</string>
+    <string name="agregar_nota">Agregar nota</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar_resumen_dia">Cancelar</string>
+    <string name="la_nota_no_vacia">La nota no puede estar vacía</string>
+    <string name="editar_nota_resumen_dia">Editar nota</string>
+    <string name="guardar_resumen_dia">Guardar</string>
+    <string name="cancelar_resumen_dia_edit">Cancelar</string>
+    <string name="la_nota_no_vacia_edit">La nota no puede estar vacía</string>
+    <string name="no_iniciado">No iniciado</string>
+    <string name="completado">Completado</string>
+    <string name="incompleto">Incompleto</string>
+
+    <!-- Strings para el apartado de Reminder Activity -->
+    <string name="error_usuario_no_identificado_reminder">Error: Usuario no identificado</string>
+    <string name="agregar_recordatorio_reminder">Agregar recordatorio</string>
+    <string name="anterior_reminder">Anterior</string>
+    <string name="pr_ximo__reminder">Próximo</string>
+    <string name="hora_reminder">hora</string>
+    <string name="cantidad_reminder">cantidad</string>
+    <string name="recordatorios_reminder">Recordatorios</string>
+    <string name="notificaciones_para_beber_agua_reminder">Notificaciones para beber agua</string>
+    <string name="cancelar_reminder">Cancelar</string>
+    <string name="guardar_reminder">Guardar</string>
+    <string name="recordatorio_eliminado_correctamente">Recordatorio eliminado correctamente</string>
+    <string name="no_se_pudo_eliminar_el_recordatorio">No se pudo eliminar el recordatorio</string>
+    <string name="recordatorio_actualizado">Recordatorio actualizado</string>
+    <string name="error_al_actualizar">Error al actualizar</string>
 
 
-    <!-- Strings para el apartado de x -->
+    <!-- Strings para el apartado de registrar consumo -->
+    <string name="elige_un_dise_o">Elige un diseño</string>
+    <string name="dise_oseleccionado">diseñoSeleccionado</string>
+    <string name="error_usuario_no_identificado_registrarconsumo">Error: usuario no identificado</string>
+    <string name="consumo_registrado_registrarconsumo">Consumo registrado</string>
+    <string name="error_al_registrar_consumo_registrarconsumo">Error al registrar consumo</string>
+
+
+    <!-- Strings para el apartado de registrar resumen dia -->
+    <string name="l_mite_alcanzado">Límite alcanzado</string>
+    <string name="la_nota_no_puede_exceder_los_r">"La nota no puede exceder los "</string>
+    <string name="caracteres">" caracteres."</string>
+
+    <!-- Strings para el apartado de register activity -->
+
+
+    <string name="completa_todos_los_campos">Completa todos los campos</string>
+    <string name="usuario_registrado_correctamente">Usuario registrado correctamente</string>
+    <string name="error_correo_ya_registrado">Error: correo ya registrado</string>
+    <string name="eliminar_recoradapter">Eliminar</string>
+    <string name="deseas_eliminar_este_recordatorio">¿Deseas eliminar este recordatorio?</string>
+    <string name="cancelar_recoradapter">Cancelar</string>
+    <string name="si">Sí</string>
+
+    <!-- Strings para el apartado de recordatorio adapter -->
+
+    <string name="hora_recoradapter">Hora: </string>
+    <string name="estado_recoradapter">Estado: </string>
+    <string name="cantidad_recoradapter">Cantidad: </string>
+
+    <!-- Strings para el apartado de profalie -->
+    <string name="completa_todos_profile">Completa todos los campos</string>
+    <string name="ingresa_una_edad">Ingresa una edad válida entre 10 y 120 años</string>
+    <string name="edad_debe_ser_profile">Edad debe ser un número válido</string>
+    <string name="ingresa_un_peso">Ingresa un peso válido entre 30 y 500 kg</string>
+    <string name="peso_debe_ser_un_n_mero_v_lido_profile">Peso debe ser un número válido</string>
+    <string name="nombre_profile">nombre</string>
+    <string name="edad_profile">edad</string>
+    <string name="genero_profile">genero</string>
+    <string name="peso_profile">peso</string>
+    <string name="actividad_fisica_profile">actividad_fisica</string>
+    <string name="objetivo_diario_ml_profile">objetivo_diario_ml</string>
+    <string name="datos_actualizados_profile">Datos actualizados</string>
+
+
+    <!-- Strings para el apartado de noti -->
+    <string name="recordatorios_para_beber_agua_noti">Recordatorios para beber agua</string>
+    <string name="hora_de_beber_agua_noti">¡Hora de beber agua!</string>
+    <string name="ingiere_noti">"Ingiere "</string>
+    <string name="ml_programado_para_las_noti">" ml. Programado para las "</string>
+    <string name="no_se_pudo_programar_la_alarma">No se pudo programar la alarma</string>
+
+    <!-- Strings para el apartado de login -->
+
+    <string name="completa_todos_los_campos_login">Por favor completa todos los campos</string>
+    <string name="inicio_de_sesion">Inicio de sesión exitoso</string>
+    <string name="credenciales_incorrectas">Credenciales incorrectas. Intenta nuevamente.</string>
+
+
+    <!-- Strings para el apartado de insertar datos importantes-->
+    <string name="por_favor_completa_insert">Por favor completa todos los campos</string>
+    <string name="objetivo_diario_calculado">Objetivo diario calculado</string>
+    <string name="tu_objetivo_diario_recomendado_es">"Tu objetivo diario recomendado es "</string>
+    <string name="ml_deseas_cambiarlo">" ml. ¿Deseas cambiarlo?"</string>
+    <string name="advertencia_el_objetivo_max">ADVERTENCIA: El objetivo diario máximo recomendado es 4000 ml. Exceder esta cantidad puede ser peligroso.</string>
+    <string name="aceptar_insert">Aceptar</string>
+    <string name="error_al_obtener_el_usuario_insert">Error al obtener el usuario</string>
+    <string name="datos_guardados_insert">Datos guardados correctamente</string>
+    <string name="error_al_guardar_insert">Error al guardar los datos</string>
+    <string name="cancelar_insert">Cancelar</string>
+
+
+    <!-- Strings para el apartado de insertar datos info activity-->
+    <string name="titulo_card1_largo">8 vasos diarios - La base de la hidratación</string>
+    <string name="la_recomendaci_n_de_beber_8_vasos_de_agua">La recomendación de beber 8 vasos de agua al día (aproximadamente 2 litros) es una guía general que se adapta a la mayoría de adultos sanos. Sin embargo, las necesidades exactas varían según:\n\n</string>
+    <string name="peso_corporal_se_recomienda_35_ml_por_kg">• Peso corporal: Se recomienda 35 ml por kg de peso (ej. 70 kg = 2.45 litros)\n</string>
+    <string name="nivel_de_actividad_a_ade_500">• Nivel de actividad: Añade 500 ml por hora de ejercicio moderado\n</string>
+    <string name="clima_en_climas_c_lidos">• Clima: En climas cálidos o húmedos necesitas 1.5 veces más agua\n</string>
+    <string name="embarazo_lactancia">• Embarazo/lactancia: Se añaden 300-700 ml diarios\n\n</string>
+    <string name="se_ales_de_buena_hidrataci_n">Señales de buena hidratación:\n</string>
+    <string name="orina_de_color_amarillo_claro">✅ Orina de color amarillo claro\n</string>
+    <string name="piel_el_stica">✅ Piel elástica\n</string>
+    <string name="boca_h_meda">✅ Boca húmeda\n</string>
+    <string name="energ_a_constante">✅ Energía constante\n\n</string>
+    <string name="consejo_profesional">Consejo profesional: Distribuye el consumo a lo largo del día y bebe un vaso al despertar para compensar la pérdida nocturna.</string>
+    <string name="titulo_card2_largo">Botella siempre contigo - Tu compañera de hidratación</string>
+    <string name="llevar_una_botella">Llevar una botella reutilizable tiene múltiples beneficios:\n\n</string>
+    <string name="beneficios_ambientales">📌 Beneficios ambientales:\n</string>
+    <string name="reduce_el_uso_de_pl_sticos">• Reduce el uso de plásticos de un solo uso\n</string>
+    <string name="disminuye_tu_huella_de_carbono">• Disminuye tu huella de carbono\n\n</string>
+    <string name="beneficios_para_la_salud">📌 Beneficios para la salud:\n</string>
+    <string name="recordatorio_visual_constante_para_beber">• Recordatorio visual constante para beber\n</string>
+    <string name="permite_medir_tu_consumo_exacto">• Permite medir tu consumo exacto\n</string>
+    <string name="mejor_control_de_temperatura_del_l_quido">• Mejor control de temperatura del líquido\n\n</string>
+    <string name="tipos_de_botellas_recomendadas">Tipos de botellas recomendadas:\n</string>
+    <string name="acero_inoxidable_mantiene_temperatura_12_24_hrs">🥇 Acero inoxidable: Mantiene temperatura 12-24 hrs\n</string>
+    <string name="vidrio_borosilicato_libre_de_qu_micos">🥈 Vidrio borosilicato: Libre de químicos\n</string>
+    <string name="trit_n_livianas_y_resistentes">🥉 Tritán: Livianas y resistentes\n\n</string>
+    <string name="truco_profesional_elige_una_botella">Truco profesional: Elige una botella con marcas horarias para seguir un cronograma de hidratación.</string>
+    <string name="titulo_card3_largo">Frutas hidratantes - Nutrición líquida</string>
+    <string name="las_frutas_con_alto_contenido">Las frutas con alto contenido de agua (85-95%) son excelentes complementos:\n\n</string>
+    <string name="sand_a_92_agua">🍉 Sandía: 92% agua + licopeno (antioxidante)</string>
+    <string name="_1_taza_140">• 1 taza = 140 ml de agua\n</string>
+    <string name="rica_en_vitamina">• Rica en vitamina C y A\n\n</string>
+    <string name="mel_n_90">"🍈 Melón: 90% agua + electrolitos naturales "</string>
+    <string name="alto_contenido_en_potasio">• Alto contenido en potasio\n</string>
+    <string name="ayuda_a_regular_presi_n_arterial">• Ayuda a regular presión arterial\n\n</string>
+    <string name="naranjas_88">🍊 Naranjas: 88% agua + fibra soluble\n</string>
+    <string name="refuerza_sistema_inmunol_gico">• Refuerza sistema inmunológico\n</string>
+    <string name="ayuda_a_absorber_hierro">• Ayuda a absorber hierro\n\n</string>
+    <string name="otras_frutas_hidratantes">Otras frutas hidratantes:\n</string>
+    <string name="pi_a_87_agua_bromelina_digestiva">• Piña (87% agua + bromelina digestiva)\n</string>
+    <string name="pepino_96_agua_t_cnicamente_una_fruta">• Pepino (96% agua - técnicamente una fruta)\n</string>
+    <string name="fresas_91_agua_antioxidantes">• Fresas (91% agua + antioxidantes)\n\n</string>
+    <string name="receta_hidratante_mezcla_sand_a_pepino">Receta hidratante: Mezcla sandía, pepino y menta para un agua infusionada natural.</string>
+    <string name="titulo_card4_largo">Reduce bebidas perjudiciales - Hidratación inteligente</string>
+    <string name="c_mo_afectan_diferentes_bebidas">Cómo afectan diferentes bebidas a tu hidratación:\n\n</string>
+    <string name="caf_por_taza">☕ Café (por taza):\n</string>
+    <string name="efecto_diur_tico_leve">• Efecto diurético leve\n</string>
+    <string name="contrarresta_con_1">• Contrarresta con 1/2 vaso de agua extra\n</string>
+    <string name="l_mite_saludable_3_4_tazas">• Límite saludable: 3-4 tazas/día\n\n</string>
+    <string name="alcohol">🍷 Alcohol:\n</string>
+    <string name="inhibe_la_hormona_antidiur_tica_adh">• Inhibe la hormona antidiurética (ADH)\n</string>
+    <string name="cada_copa_necesita_1_2_vasos_de_agua">• Cada copa necesita 1-2 vasos de agua\n</string>
+    <string name="causa_p_rdida_de_electrolitos">• Causa pérdida de electrolitos\n\n</string>
+    <string name="bebidas_azucaradas">🥤 Bebidas azucaradas:\n</string>
+    <string name="alto_contenido_de_fructosa">• Alto contenido de fructosa\n</string>
+    <string name="requieren_agua_para_metabolizarse">• Requieren agua para metabolizarse\n</string>
+    <string name="aumentan_deshidrataci_n_celular">• Aumentan deshidratación celular\n\n</string>
+    <string name="alternativas_saludables">Alternativas saludables:\n</string>
+    <string name="agua_de_coco_naturalmente_isot_nica">• Agua de coco (naturalmente isotónica)\n</string>
+    <string name="t_herbal_sin_cafe_na">• Té herbal sin cafeína\n</string>
+    <string name="agua_infusionada_con_frutas">• Agua infusionada con frutas\n\n</string>
+    <string name="dato_clave_el_cuerpo_necesita_3_mol_culas">Dato clave: El cuerpo necesita 3 moléculas de agua para metabolizar 1 molécula de alcohol.</string>
+    <string name="consumo_diario_de_agua_ml">Consumo diario de agua (ml)</string>
+    <string name="editar_recordatorio_reminder">Editar recordatorio</string>
+    <string name="pr_ximo_recordatorio">"Próximo recordatorio: "</string>
+    <string name="no_hay_m_s_recordatorios_hoy">No hay más recordatorios hoy</string>
 
 
 </resources>

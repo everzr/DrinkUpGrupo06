@@ -91,7 +91,7 @@ public class GraficoActivity extends AppCompatActivity{
             etiquetasDias.add(String.valueOf(dia));
         }
 
-        BarDataSet dataSet = new BarDataSet(entradas, "Consumo diario de agua (ml)");
+        BarDataSet dataSet = new BarDataSet(entradas, getString(R.string.consumo_diario_de_agua_ml));
         dataSet.setColor(Color.parseColor("#2196F3")); // Azul
         dataSet.setValueTextSize(12f);
         dataSet.setValueTextColor(Color.DKGRAY);

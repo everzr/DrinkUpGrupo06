@@ -2,17 +2,18 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F6FA">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:paddingTop="26dp"
+<LinearLayout
+    android:paddingTop="26dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-   >
+    tools:ignore="RedundantNamespace,ScrollViewSize">
 
     <LinearLayout
         android:id="@+id/toolbar"
@@ -29,7 +30,8 @@ android:paddingTop="26dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/consumo_volver"
             android:src="@drawable/ic_arrow_back"
-            app:tint="#FFFFFF" />
+            app:tint="#FFFFFF"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <View
             android:layout_width="0dp"
@@ -43,7 +45,8 @@ android:paddingTop="26dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/consumo_design"
             android:src="@drawable/ic_settings"
-            app:tint="#FFFFFF" />
+            app:tint="#FFFFFF"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <!-- Imagen/diseño dinámico -->
@@ -67,7 +70,8 @@ android:paddingTop="26dp"
             android:id="@+id/diseñoView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            tools:ignore="ContentDescription" />
     </FrameLayout>
 
     <!-- Spinner para cantidad -->
@@ -76,7 +80,8 @@ android:paddingTop="26dp"
         android:layout_gravity="center"
         android:paddingLeft="15dp"
         android:layout_width="300dp"
-        android:layout_height="80dp" />
+        android:layout_height="80dp"
+        tools:ignore="RtlSymmetry" />
 
     <!-- Botón registrar -->
     <Button

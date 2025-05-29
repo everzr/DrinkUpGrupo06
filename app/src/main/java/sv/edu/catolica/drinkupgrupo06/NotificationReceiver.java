@@ -33,15 +33,15 @@ public class NotificationReceiver extends BroadcastReceiver {
                     "Canal de Recordatorios",
                     NotificationManager.IMPORTANCE_HIGH
             );
-            canal.setDescription("Recordatorios para beber agua");
+            canal.setDescription(context.getString(R.string.recordatorios_para_beber_agua_noti));
             manager.createNotificationChannel(canal);
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, canalId)
-                .setSmallIcon(R.drawable.logoapp)
-                .setContentTitle("¡Hora de beber agua!")
-                .setContentText("Ingiere " + cantidad + " ml. Programado para las " + hora)
-                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.logoapp))
+                .setSmallIcon(R.drawable.drinkuplogo)
+                .setContentTitle(context.getString(R.string.hora_de_beber_agua_noti))
+                .setContentText(context.getString(R.string.ingiere_noti) + cantidad + context.getString(R.string.ml_programado_para_las_noti) + hora)
+                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.drinkuplogo))
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
 
@@ -86,7 +86,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                     }
                 }
             } catch (SecurityException e) {
-                Log.e("AlarmError", "No se pudo programar la alarma", e);
+                Log.e("AlarmError", context.getString(R.string.no_se_pudo_programar_la_alarma), e);
             }
 
         }

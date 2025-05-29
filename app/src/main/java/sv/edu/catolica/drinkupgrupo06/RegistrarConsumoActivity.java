@@ -97,12 +97,12 @@ public class RegistrarConsumoActivity extends AppCompatActivity {
 
     private void mostrarDialogoDiseños() {
         new AlertDialog.Builder(this)
-                .setTitle("Elige un diseño")
+                .setTitle(R.string.elige_un_dise_o)
                 .setSingleChoiceItems(nombresDiseños, diseñoSeleccionado, (dialog, which) -> {
                     diseñoSeleccionado = which;
 
                     SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
-                    prefs.edit().putInt("diseñoSeleccionado", diseñoSeleccionado).apply();
+                    prefs.edit().putInt(getString(R.string.dise_oseleccionado), diseñoSeleccionado).apply();
 
                     actualizarDiseño();
                     dialog.dismiss();
@@ -127,7 +127,7 @@ public class RegistrarConsumoActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
         int usuarioId = prefs.getInt("id", -1);
         if (usuarioId == -1) {
-            Toast.makeText(this, "Error: usuario no identificado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_usuario_no_identificado_registrarconsumo, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -146,11 +146,11 @@ public class RegistrarConsumoActivity extends AppCompatActivity {
 
         long result = db.insert("consumo", null, values);
         if (result != -1) {
-            Toast.makeText(this, "Consumo registrado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.consumo_registrado_registrarconsumo, Toast.LENGTH_SHORT).show();
             setResult(RESULT_OK);
             finish();
         } else {
-            Toast.makeText(this, "Error al registrar consumo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_al_registrar_consumo_registrarconsumo, Toast.LENGTH_SHORT).show();
         }
 
     }

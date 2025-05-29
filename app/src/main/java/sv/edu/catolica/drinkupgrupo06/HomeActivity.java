@@ -6,13 +6,12 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.os.Build;
-import android.Manifest;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -56,17 +55,17 @@ public class HomeActivity extends AppCompatActivity {
             finish();
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1001);
-            }
-        }
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.azul_4)));
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1001);
+            }
         }
 
         tvBienvenida = findViewById(R.id.tvBienvenida);
@@ -278,7 +277,7 @@ public class HomeActivity extends AppCompatActivity {
                 new String[]{String.valueOf(userId), horaActual}
         );
 
-        String proximo = "No hay más recordatorios hoy";
+        String proximo = getString(R.string.no_hay_m_s_recordatorios_hoy);
         if (c3.moveToFirst() && c3.getString(0) != null) {
             String fechaCompleta = c3.getString(0);
             try {
@@ -290,7 +289,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         c3.close();
 
-        tvProxRecordatorio.setText("Próximo recordatorio: " + proximo);
+        tvProxRecordatorio.setText(getString(R.string.pr_ximo_recordatorio) + proximo);
 
     }
 

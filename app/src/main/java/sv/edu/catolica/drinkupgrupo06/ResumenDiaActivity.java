@@ -29,7 +29,7 @@ public class ResumenDiaActivity extends AppCompatActivity {
         configurarToolbar();
 
         fecha = getIntent().getStringExtra("fecha");
-        txtFecha.setText("Fecha: " + fecha);
+        txtFecha.setText(getString(R.string.fecha_resumen_dia) + fecha);
 
         ImageButton btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(v -> finish());
@@ -73,12 +73,12 @@ public class ResumenDiaActivity extends AppCompatActivity {
         int objetivo = obtenerObjetivoDiario(db, usuarioId);
         db.close();
 
-        String estado = totalConsumido == 0 ? "No iniciado" :
-                totalConsumido >= objetivo ? "Completado" : "Incompleto";
+        String estado = totalConsumido == 0 ? getString(R.string.no_iniciado) :
+                totalConsumido >= objetivo ? getString(R.string.completado) : getString(R.string.incompleto);
 
-        txtObjetivo.setText("Objetivo: " + objetivo + " ml");
-        txtTotalConsumido.setText("Total consumido: " + totalConsumido + " ml");
-        txtEstado.setText("Estado: " + estado);
+        txtObjetivo.setText(getString(R.string.objetivo_resumen_dia) + objetivo + " ml");
+        txtTotalConsumido.setText(getString(R.string.total_consumido_resumen_dia) + totalConsumido + " ml");
+        txtEstado.setText(getString(R.string.estado_resumen_dia) + estado);
     }
 
     private int obtenerTotalConsumido(SQLiteDatabase db, int usuarioId) {
@@ -109,13 +109,13 @@ public class ResumenDiaActivity extends AppCompatActivity {
 
     private void mostrarDialogoNota() {
         final EditText input = new EditText(this);
-        input.setHint("Escribe tu nota aquí");
+        input.setHint(R.string.escribe_tu_nota_aqu);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Agregar nota")
+                .setTitle(R.string.agregar_nota)
                 .setView(input)
-                .setPositiveButton("Guardar", null)
-                .setNegativeButton("Cancelar", null)
+                .setPositiveButton(R.string.guardar, null)
+                .setNegativeButton(R.string.cancelar_resumen_dia, null)
                 .create();
 
         dialog.setOnShowListener(dialogInterface -> {
@@ -124,7 +124,7 @@ public class ResumenDiaActivity extends AppCompatActivity {
                 String nuevaNota = input.getText().toString().trim();
 
                 if (nuevaNota.isEmpty()) {
-                    input.setError("La nota no puede estar vacía");
+                    input.setError(getString(R.string.la_nota_no_vacia));
                 } else if (nuevaNota.length() > LIMITE_CARACTERES) {
                     mostrarAlertaLimite();
                     nuevaNota = nuevaNota.substring(0, LIMITE_CARACTERES);
@@ -153,10 +153,10 @@ public class ResumenDiaActivity extends AppCompatActivity {
         input.setSelection(notaActual.length());
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Editar nota")
+                .setTitle(R.string.editar_nota_resumen_dia)
                 .setView(input)
-                .setPositiveButton("Guardar", null)
-                .setNegativeButton("Cancelar", null)
+                .setPositiveButton(R.string.guardar_resumen_dia, null)
+                .setNegativeButton(R.string.cancelar_resumen_dia_edit, null)
                 .create();
 
         dialog.setOnShowListener(dialogInterface -> {
@@ -165,7 +165,7 @@ public class ResumenDiaActivity extends AppCompatActivity {
                 String notaEditada = input.getText().toString().trim();
 
                 if (notaEditada.isEmpty()) {
-                    input.setError("La nota no puede estar vacía");
+                    input.setError(getString(R.string.la_nota_no_vacia_edit));
                 } else if (notaEditada.length() > LIMITE_CARACTERES) {
                     mostrarAlertaLimite();
                     notaEditada = notaEditada.substring(0, LIMITE_CARACTERES);
@@ -205,8 +205,8 @@ public class ResumenDiaActivity extends AppCompatActivity {
 
     private void mostrarAlertaLimite() {
         new AlertDialog.Builder(this)
-                .setTitle("Límite alcanzado")
-                .setMessage("La nota no puede exceder los " + LIMITE_CARACTERES + " caracteres.")
+                .setTitle(R.string.l_mite_alcanzado)
+                .setMessage(getString(R.string.la_nota_no_puede_exceder_los_r) + LIMITE_CARACTERES + getString(R.string.caracteres))
                 .setPositiveButton("OK", null)
                 .show();
     }

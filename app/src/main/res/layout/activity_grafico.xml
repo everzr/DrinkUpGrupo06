@@ -16,7 +16,8 @@
         android:layout_gravity="start"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/consumo_volver"
-        android:src="@drawable/arrowblue" />
+        android:src="@drawable/arrowblue"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <!-- Título centrado -->
     <TextView

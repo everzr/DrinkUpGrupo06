@@ -19,7 +19,7 @@
             android:id="@+id/tvInfoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consejos de Hidratación"
+            android:text="@string/consejos_de_hidratacion_text"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/azul_1"
@@ -28,6 +28,7 @@
 
         <!-- Tarjeta 1 -->
         <LinearLayout
+            android:onClick="tarjeta1Click"
             android:layout_width="match_parent"
             android:maxWidth="320dp"
             android:layout_gravity="center"
@@ -41,15 +42,16 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:src="@drawable/tip1"
+                android:background="#BBDEFB"
+                android:contentDescription="@string/bebe_agua_diariamente_img"
                 android:scaleType="centerCrop"
-                android:contentDescription="Bebe agua diariamente"
-                android:background="#BBDEFB"/>
+                android:src="@drawable/tip1"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8 vasos diarios"
+                android:text="@string/_8_vasos_diarios_text"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#333"
@@ -59,7 +61,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bebe al menos 8 vasos de agua al día para mantener una buena hidratación."
+                android:text="@string/bebe_al_menos_8_vasos_text"
                 android:textSize="14sp"
                 android:textColor="#666"
                 android:paddingStart="12dp"
@@ -69,6 +71,7 @@
 
         <!-- Tarjeta 2 -->
         <LinearLayout
+            android:onClick="tarjeta2Click"
             android:layout_width="match_parent"
             android:maxWidth="320dp"
             android:layout_gravity="center"
@@ -84,13 +87,13 @@
                 android:layout_height="180dp"
                 android:src="@drawable/tip2"
                 android:scaleType="centerCrop"
-                android:contentDescription="Botella reutilizable"
+                android:contentDescription="@string/botella_reutilizable_img"
                 android:background="#BBDEFB"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Botella siempre contigo"
+                android:text="@string/botella_siempre_contigo"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#333"
@@ -100,7 +103,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lleva una botella reutilizable para recordar hidratarte durante el día."
+                android:text="@string/lleva_una_botella_reutilizable_text"
                 android:textSize="14sp"
                 android:textColor="#666"
                 android:paddingStart="12dp"
@@ -110,6 +113,7 @@
 
         <!-- Tarjeta 3 -->
         <LinearLayout
+            android:onClick="tarjeta3Click"
             android:layout_width="match_parent"
             android:maxWidth="320dp"
             android:layout_gravity="center"
@@ -125,13 +129,13 @@
                 android:layout_height="180dp"
                 android:src="@drawable/tip6"
                 android:scaleType="centerCrop"
-                android:contentDescription="Frutas hidratantes"
+                android:contentDescription="@string/frutas_hidratantes_img"
                 android:background="#BBDEFB"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Frutas hidratantes"
+                android:text="@string/frutas_hidratantes_info"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#333"
@@ -141,7 +145,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sandía, melón y naranjas son excelentes para complementar tu hidratación."
+                android:text="@string/texto_descripcion"
                 android:textSize="14sp"
                 android:textColor="#666"
                 android:paddingStart="12dp"
@@ -151,6 +155,7 @@
 
         <!-- Tarjeta 4 -->
         <LinearLayout
+            android:onClick="tarjeta4Click"
             android:layout_width="match_parent"
             android:maxWidth="320dp"
             android:layout_gravity="center"
@@ -165,13 +170,13 @@
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/tip4"
-                android:contentDescription="Evita bebidas dañinas"
+                android:contentDescription="@string/evita_bebidas_img"
                 android:background="#BBDEFB"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reduce bebidas perjudiciales"
+                android:text="@string/reduce_bebidas_perjudiciales"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="#333"
@@ -181,7 +186,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Limita el consumo de alcohol, café y bebidas azucaradas que deshidratan."
+                android:text="@string/limita_el_consumo_de_alcohol"
                 android:textSize="14sp"
                 android:textColor="#666"
                 android:paddingStart="12dp"

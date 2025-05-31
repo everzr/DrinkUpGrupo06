@@ -79,6 +79,8 @@ public class ReminderActivity extends HomeActivity {
 
         cargarRecordatorios(usuarioId);
 
+        validarYReprogramarRecordatorios(usuarioId);
+
         fab.setOnClickListener(v -> {
             CrearRecordatorio(v);
             Toast.makeText(this, R.string.agregar_recordatorio_reminder, Toast.LENGTH_SHORT).show();
@@ -229,6 +231,33 @@ public class ReminderActivity extends HomeActivity {
         } catch (SecurityException e) {
             Log.e("AlarmError", "No se pudo programar la alarma", e);
         }
+    }
+
+    private void validarYReprogramarRecordatorios(int usuarioId) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT id, hora, cantidad_ml FROM recordatorios WHERE usuario_id = ?", new String[]{String.valueOf(usuarioId)});
+        while (c.moveToNext()) {
+            int id = c.getInt(0);
+            String hora = c.getString(1);
+            int cantidad = c.getInt(2);
+
+            // Verifica si la alarma está activa
+            Intent intent = new Intent(this, NotificationReceiver.class);
+            intent.putExtra(getString(R.string.hora_reminder), hora);
+            intent.putExtra(getString(R.string.cantidad_reminder), cantidad);
+            intent.putExtra("idRecordatorio", id);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                    this,
+                    id,
+                    intent,
+                    PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_IMMUTABLE
+            );
+            if (pendingIntent == null) {
+                // No está activa, reprograma
+                programarNotificacion(hora, cantidad, id);
+            }
+        }
+        c.close();
     }
 
     private void crearCanalNotificacion() {
